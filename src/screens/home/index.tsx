@@ -1,11 +1,12 @@
-import { Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { styles } from './styles'
-import { useState } from 'react'
+import { Text, TextInput, TouchableOpacity, View } from 'react-native'
+
+import { Participant } from '../../components/Participant'
 
 
 export function Home() {
   function handleNewParticipant() {
-
+    console.log('novo participante')
   }
 
   return (
@@ -33,6 +34,9 @@ export function Home() {
           </Text>
         </TouchableOpacity>
       </View>
+
+      <Participant />
+      <Participant />
 
 
       {/* <View>

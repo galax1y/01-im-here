@@ -55,3 +55,37 @@ const styles = StyleSheet.create({
   }
 })
 ```
+
+## Componentização
+
+Assim como no React pra web, a componentização no React Native também é importante e ajuda nos seguintes pontos:
+
+* Reutilização de código
+* Isolamento de contexto
+* Legibilidade do código
+* Redução da complexidade
+* Padronização do projeto
+* Arquivos menores
+* Produtividade
+
+## Touchables e TextInput
+
+São alguns componentes core do React Native para interação com o usuário, segue a forma de lidar com eventos
+
+```tsx
+
+import { useState } from 'react'
+
+...
+
+function doSomething() {
+  ...
+}
+
+...
+  <TouchableOpacity onPress={doSomething}>
+
+  const [text, setText] = useState<string>('')
+  <TextInput onChangeText={(text) => setText(text)}}>
+...
+```
