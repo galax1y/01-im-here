@@ -89,3 +89,57 @@ function doSomething() {
   <TextInput onChangeText={(text) => setText(text)}}>
 ...
 ```
+
+## ScrollView e FlatList
+
+A **`ScrollView`** adiciona rolagem na tela quando não há espaço suficiente para renderizar os componentes.
+
+Ela também **renderiza imediatamente todos os componentes, mesmo que não estejam na tela.**
+
+```tsx
+import { ScrollView } from 'react-native'
+
+<ScrollView>
+  {participants.map(item => {
+    return (
+      <Participant
+        key={item}
+        name={item}
+        onRemove={() => handleRemoveParticipant(item)}
+      />
+    )
+  })}
+</ScrollView>
+```
+
+A **`FlatList`** também adiciona rolagem quando os componentes excedem a região demarcada.
+
+Como contraponto essa listagem, **renderiza somente a quantidade de elementos que cabem na tela, renderiza os elementos que entram e remove itens que saem da tela.**
+
+```tsx
+import { FlatList } from 'react-native'
+
+<FlatList
+  data={participants}
+  keyExtractor={item => item}
+  showsVerticalScrollIndicator={false}
+  renderItem={({item}) => (
+    <Participant
+      key={item}
+      name={item}
+      onRemove={() => handleRemoveParticipant(item)}
+    />
+    )}
+  ListEmptyComponent={() => {
+    return (
+    <Text style={styles.emptyListText}>
+      Ninguém chegou no evento ainda? Adicione participantes à sua lista de presença.  
+    </Text>
+    )
+  }}
+/>
+```
+
+Assim, cabe ao desenvolvedor determinar quando usar cada uma, sendo que a **`FlatList`** é melhor opção em questão de performance para grandes listas.
+
+Já a **`ScrollView`** é mais recomendada para menus e outras partes da aplicação com menos 'cards'. 
