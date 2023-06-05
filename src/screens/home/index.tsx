@@ -1,5 +1,5 @@
 import { styles } from './styles'
-import { FlatList, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Alert, FlatList, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native'
 
 import { Participant } from '../../components/Participant'
 
@@ -9,9 +9,25 @@ export function Home() {
 
   function handleAddParticipant() {
     console.log('novo participante')
+    if (participants.includes("Lucas")) {
+      return Alert.alert('Deu ruim')
+    }
   }
 
   function handleRemoveParticipant(name: string) {
+    Alert.alert('Remover', `Remover o participante ${name}?`, [
+      {
+        text: 'Sim',
+        onPress: () => {
+          Alert.alert('Deletado.')
+        },
+      },
+      {
+        text: 'Não',
+        style: 'cancel',
+      },
+    ])
+
     console.log('remover participante', name)
   }
 
