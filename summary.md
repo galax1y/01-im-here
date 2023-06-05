@@ -154,3 +154,5 @@ Os principais hooks são:
 2. **`useEffect`** é um hook para disparar lógica quando um certo evento acontecer ou um estado mudar.
 
 Quando manipulamos variáveis no corpo do código, é necessário que seja disparado um evento para realizar re-renderização dos componentes, caso contrário, nada vai acontecer na interface visual. Então existe o hook **`useState`** que 'assiste' o valor de uma variável e quando esse valor muda, esse evento de re-renderização é disparado.
+
+Aqui entra o conceito de **`Imutabilidade`** do React, que incentiva a criação de novos objetos ao invés de entrar no endereço de memória de um objeto existente e alterá-lo, tudo isso é feito pelo React por baixo dos panos e torna todo o processo de renderização mais performático, mas temos que levar em conta durante o desenvolvimento para entender como funcionam os estados. 

@@ -7,13 +7,15 @@ import { useState } from 'react'
 
 export function Home() {
   const [participants, setParticipants] = useState<string[]>(['John'])
+  const [participantName, setParticipantName] = useState<string>('')
 
   function handleAddParticipant() {  
-    if (participants.includes("Lucas")) {
-      return Alert.alert('Deu ruim')
+    if (participants.includes(participantName)) {
+      return Alert.alert('Esse nome já está na lista.')
     }
 
-    setParticipants((prevState) => [...prevState, 'Anna'])
+    setParticipants((prevState) => [...prevState, participantName])
+    setParticipantName('')
   }
 
   function handleRemoveParticipant(name: string) {
@@ -48,6 +50,8 @@ export function Home() {
           style={styles.input}
           placeholder='Nome do participante'
           placeholderTextColor={'#6B6B6B'}
+          onChangeText={setParticipantName}
+          value={participantName}
         />
         <TouchableOpacity
           style={styles.button}
