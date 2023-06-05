@@ -2,16 +2,18 @@ import { styles } from './styles'
 import { Alert, FlatList, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native'
 
 import { Participant } from '../../components/Participant'
+import { useState } from 'react'
 
 
 export function Home() {
-  const participants = ['Lucas', 'Vitor', 'Pablo', 'Alisson', 'John', 'Alyssa', 'Leana']
+  const [participants, setParticipants] = useState<string[]>(['John'])
 
-  function handleAddParticipant() {
-    console.log('novo participante')
+  function handleAddParticipant() {  
     if (participants.includes("Lucas")) {
       return Alert.alert('Deu ruim')
     }
+
+    setParticipants((prevState) => [...prevState, 'Anna'])
   }
 
   function handleRemoveParticipant(name: string) {
@@ -19,6 +21,7 @@ export function Home() {
       {
         text: 'Sim',
         onPress: () => {
+          setParticipants(() => participants.filter(item => item !== name))
           Alert.alert('Deletado.')
         },
       },
@@ -28,7 +31,6 @@ export function Home() {
       },
     ])
 
-    console.log('remover participante', name)
   }
 
   return (

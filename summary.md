@@ -143,3 +143,14 @@ import { FlatList } from 'react-native'
 Assim, cabe ao desenvolvedor determinar quando usar cada uma, sendo que a **`FlatList`** é melhor opção em questão de performance para grandes listas.
 
 Já a **`ScrollView`** é mais recomendada para menus e outras partes da aplicação com menos 'cards'. 
+
+## Hooks (igual React da web)
+
+Hooks encapsulam funcionalidades.
+
+Os principais hooks são:
+
+1. **`useState`** é um hook para criar e manipular estados.
+2. **`useEffect`** é um hook para disparar lógica quando um certo evento acontecer ou um estado mudar.
+
+Quando manipulamos variáveis no corpo do código, é necessário que seja disparado um evento para realizar re-renderização dos componentes, caso contrário, nada vai acontecer na interface visual. Então existe o hook **`useState`** que 'assiste' o valor de uma variável e quando esse valor muda, esse evento de re-renderização é disparado.
