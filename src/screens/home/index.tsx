@@ -23,7 +23,7 @@ export function Home() {
       {
         text: 'Sim',
         onPress: () => {
-          setParticipants(() => participants.filter(item => item !== name))
+          setParticipants((prevState) => prevState.filter(item => item !== name))
           Alert.alert('Deletado.')
         },
       },
